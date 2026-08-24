@@ -9,10 +9,11 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-# File types that count as documents; tuned once we see the real drive.
+# The v1 include list from the Company RAG Implementation Plan: high-value
+# business text only — images, CAD, and accounting binaries are excluded.
 DOCUMENT_EXTENSIONS = {
-    ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".dwg", ".dxf",
-    ".msg", ".eml", ".zip", ".jpg", ".png", ".tif",
+    ".pdf", ".doc", ".docx", ".txt", ".rtf",
+    ".xlsx", ".xls", ".csv", ".msg", ".eml",
 }
 
 
@@ -30,6 +31,9 @@ def scan(root: str | Path) -> list[ScannedFile]:
     results: list[ScannedFile] = []
     for dirpath, _dirnames, filenames in os.walk(root):
         for fn in filenames:
+            # Office lock files (~$...) and hidden/system files are noise.
+            if fn.startswith(("~$", ".")):
+                continue
             if Path(fn).suffix.lower() not in DOCUMENT_EXTENSIONS:
                 continue
             full = Path(dirpath) / fn

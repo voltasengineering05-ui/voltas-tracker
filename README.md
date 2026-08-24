@@ -2,19 +2,27 @@
 
 AI document-tracking agent for Voltas Engineering.
 
-It reads the project Excel tracker, scans the P: drive, checks Outlook (via
-Microsoft Graph), and reports which required documents are **received**,
-**missing**, or **overdue** — with draft follow-up emails for the missing ones.
+It reads each project's **Project Design Delivery Checklist** workbook (the
+21-stage sheet: Intake → Quote Sent → … → Inspections → Sch CB), scans the
+P: drive, and reports where every project actually stands: which stages are
+**done** (dated in the sheet), which have **evidence found** on the drive but
+no date yet (the sheet is behind reality), and which are truly **pending**.
+Outlook (via Microsoft Graph) can optionally catch documents that arrived by
+email but were never filed.
 
 Everything runs locally on the office Windows PC. **Read-only by design**: it
 never moves, renames, or deletes files, and never sends email without approval.
 
 ## How it works
 
-1. **Excel tracker** — each row says what document is expected, for which
-   project, and by when (`excel_reader.py`).
-2. **P: drive scan** — walks the folder tree and fuzzy-matches filenames
-   against the expected documents (`pdrive_scanner.py`, `matcher.py`).
+1. **Checklist reader** — parses one workbook per project: the header block
+   (project number, address, client) plus the numbered stage table with its
+   Date and By columns (`excel_reader.py`).
+2. **P: drive scan** — walks the folder tree (quotations, project-year
+   folders, inspections) and matches filenames to stages using the drive's
+   naming conventions: discipline codes (AR, EL, ME, PL, SP, BE, PM, DC) and
+   city codes (SRY, BBY, VAN, LGY, CGY)
+   (`pdrive_scanner.py`, `matcher.py`, `conventions.py`).
 3. **Outlook check** — looks for documents that arrived by email but were
    never filed (`outlook_graph.py`, optional).
 4. **AI fallback** — only when a filename is too messy for fuzzy matching, a

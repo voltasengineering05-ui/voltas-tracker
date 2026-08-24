@@ -10,16 +10,17 @@ Requires the `ai` extra: pip3 install "voltas-tracker[ai]"
 
 from __future__ import annotations
 
-from .excel_reader import ExpectedDocument
+from .excel_reader import Stage
 from .pdrive_scanner import ScannedFile
 
 
 def classify(
-    doc: ExpectedDocument,
+    project: str,
+    stage: Stage,
     candidates: list[ScannedFile],
     model: str = "llama3.2:3b",
 ) -> str | None:
-    """Ask the local model which candidate file (if any) is `doc`.
+    """Ask the local model which candidate file (if any) proves `stage`.
 
     Returns the chosen file path, or None if the model is unsure — unsure
     answers stay in the human review queue rather than being guessed.
@@ -31,7 +32,7 @@ def classify(
 
     prompt = (
         "You match engineering project documents to files.\n"
-        f"Expected document: {doc.name!r} for project {doc.project!r}.\n"
+        f"Checklist stage: {stage.activity!r} for project {project!r}.\n"
         "Candidate files:\n"
         + "\n".join(f"{i}: {c.name} (in {c.folder})" for i, c in enumerate(candidates))
         + "\nReply with ONLY the number of the matching file, or NONE."

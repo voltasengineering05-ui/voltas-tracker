@@ -1,70 +1,76 @@
-"""Terminal + CSV report of match results."""
+"""Terminal + CSV report of per-project stage results."""
 
 from __future__ import annotations
 
 import csv
-from datetime import date
 from pathlib import Path
 
 from rich.console import Console
 from rich.table import Table
 
-from .matcher import MatchResult, Status
+from .matcher import StageResult, Status
 
 STATUS_STYLE = {
-    Status.RECEIVED: "green",
-    Status.MISSING: "red",
+    Status.DONE: "green",
+    Status.EVIDENCE_FOUND: "cyan",
+    Status.PENDING: "red",
     Status.AMBIGUOUS: "yellow",
 }
 
 
-def is_overdue(r: MatchResult, today: date | None = None) -> bool:
-    today = today or date.today()
-    return r.status is Status.MISSING and r.expected.due is not None and r.expected.due < today
-
-
-def print_report(results: list[MatchResult]) -> None:
+def print_report(results: list[StageResult]) -> None:
     console = Console()
-    table = Table(title="Voltas document tracker")
-    table.add_column("Project")
-    table.add_column("Document")
-    table.add_column("Status")
-    table.add_column("Matched file")
-    table.add_column("Score", justify="right")
-
+    by_project: dict[str, list[StageResult]] = {}
     for r in results:
-        status = "OVERDUE" if is_overdue(r) else r.status.value
-        style = "bold red" if status == "OVERDUE" else STATUS_STYLE[r.status]
-        table.add_row(
-            r.expected.project,
-            r.expected.name,
-            f"[{style}]{status}[/{style}]",
-            r.file.name if r.file else "—",
-            f"{r.score:.0f}" if r.score else "—",
-        )
-    console.print(table)
+        by_project.setdefault(r.project.label, []).append(r)
+
+    for label, stages in by_project.items():
+        chk = stages[0].project
+        subtitle = " · ".join(p for p in (chk.address, chk.client_name) if p)
+        table = Table(title=f"{label}" + (f"  ({subtitle})" if subtitle else ""))
+        table.add_column("#", justify="right")
+        table.add_column("Activity")
+        table.add_column("Date")
+        table.add_column("By")
+        table.add_column("Status")
+        table.add_column("Evidence on P:")
+        for r in stages:
+            style = STATUS_STYLE[r.status]
+            table.add_row(
+                str(r.stage.number),
+                r.stage.activity,
+                r.stage.done_on.isoformat() if r.stage.done_on else "—",
+                r.stage.by or "—",
+                f"[{style}]{r.status.value}[/{style}]",
+                r.file.name if r.file else "—",
+            )
+        console.print(table)
 
     counts = {s: sum(1 for r in results if r.status is s) for s in Status}
-    overdue = sum(1 for r in results if is_overdue(r))
     console.print(
-        f"\n[green]{counts[Status.RECEIVED]} received[/green] · "
-        f"[red]{counts[Status.MISSING]} missing ({overdue} overdue)[/red] · "
+        f"\n[green]{counts[Status.DONE]} done[/green] · "
+        f"[cyan]{counts[Status.EVIDENCE_FOUND]} evidence found (sheet behind)[/cyan] · "
+        f"[red]{counts[Status.PENDING]} pending[/red] · "
         f"[yellow]{counts[Status.AMBIGUOUS]} need review[/yellow]"
     )
 
 
-def export_csv(results: list[MatchResult], path: str | Path) -> None:
+def export_csv(results: list[StageResult], path: str | Path) -> None:
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["project", "document", "status", "overdue", "matched_file", "score"])
+        w.writerow(
+            ["project", "stage_no", "activity", "date", "by", "status", "evidence_file", "score"]
+        )
         for r in results:
             w.writerow(
                 [
-                    r.expected.project,
-                    r.expected.name,
+                    r.project.label,
+                    r.stage.number,
+                    r.stage.activity,
+                    r.stage.done_on.isoformat() if r.stage.done_on else "",
+                    r.stage.by,
                     r.status.value,
-                    is_overdue(r),
                     r.file.path if r.file else "",
-                    f"{r.score:.0f}",
+                    f"{r.score:.0f}" if r.score else "",
                 ]
             )
