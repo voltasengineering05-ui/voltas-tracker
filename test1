@@ -1,0 +1,231 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\gurvir> pip3 install git+https://github.com/kirpajeet12/voltas-tracker.git
+Collecting git+https://github.com/kirpajeet12/voltas-tracker.git
+  Cloning https://github.com/kirpajeet12/voltas-tracker.git to c:\users\gurvir\appdata\local\temp\pip-req-build-2symdvry
+  Running command git clone --filter=blob:none --quiet https://github.com/kirpajeet12/voltas-tracker.git 'C:\Users\gurvir\AppData\Local\Temp\pip-req-build-2symdvry'
+  Resolved https://github.com/kirpajeet12/voltas-tracker.git to commit 861ce085dbe260549d0c536de3f71fd32799161a
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting openpyxl>=3.1 (from voltas-tracker==0.1.0)
+  Using cached openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting rapidfuzz>=3.0 (from voltas-tracker==0.1.0)
+  Downloading rapidfuzz-3.14.5-cp311-cp311-win_amd64.whl.metadata (12 kB)
+Collecting rich>=13.0 (from voltas-tracker==0.1.0)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting typer>=0.12 (from voltas-tracker==0.1.0)
+  Downloading typer-0.27.1-py3-none-any.whl.metadata (16 kB)
+Collecting et-xmlfile (from openpyxl>=3.1->voltas-tracker==0.1.0)
+  Using cached et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.0->voltas-tracker==0.1.0)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.0->voltas-tracker==0.1.0)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting shellingham>=1.3.0 (from typer>=0.12->voltas-tracker==0.1.0)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting annotated-doc>=0.0.2 (from typer>=0.12->voltas-tracker==0.1.0)
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting colorama (from typer>=0.12->voltas-tracker==0.1.0)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.0->voltas-tracker==0.1.0)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Using cached openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading rapidfuzz-3.14.5-cp311-cp311-win_amd64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 24.4 MB/s eta 0:00:00
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 18.8 MB/s eta 0:00:00
+Downloading typer-0.27.1-py3-none-any.whl (122 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 122.9/122.9 kB ? eta 0:00:00
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB ? eta 0:00:00
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 40.0 MB/s eta 0:00:00
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Building wheels for collected packages: voltas-tracker
+  Building wheel for voltas-tracker (pyproject.toml) ... done
+  Created wheel for voltas-tracker: filename=voltas_tracker-0.1.0-py3-none-any.whl size=15165 sha256=07c19e5c3397bf649e59a86726b547819e5cd9faa79ba33a0aa65914c2311009
+  Stored in directory: C:\Users\gurvir\AppData\Local\Temp\pip-ephem-wheel-cache-n2hlkta_\wheels\51\c6\7b\951eed3f473bca8438873e90c2aa7636ed9885cb68e1816b7d
+Successfully built voltas-tracker
+Installing collected packages: shellingham, rapidfuzz, pygments, mdurl, et-xmlfile, colorama, annotated-doc, openpyxl, markdown-it-py, rich, typer, voltas-tracker
+Successfully installed annotated-doc-0.0.5 colorama-0.4.6 et-xmlfile-2.0.0 markdown-it-py-4.2.0 mdurl-0.1.2 openpyxl-3.1.5 pygments-2.21.0 rapidfuzz-3.14.5 rich-15.0.0 shellingham-1.5.4 typer-0.27.1 voltas-tracker-0.1.0
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+PS C:\Users\gurvir> voltss-tracker setup
+voltss-tracker : The term 'voltss-tracker' is not recognized as the name of a cmdlet,
+function, script file, or operable program. Check the spelling of the name, or if a
+path was included, verify that the path is correct and try again.
+At line:1 char:1
++ voltss-tracker setup
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (voltss-tracker:String) [], CommandNotFou
+   ndException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\gurvir> claude
+Program 'claude.exe' failed to run: The specified executable is not a valid application
+for this OS platform.At C:\Users\gurvir\AppData\Roaming\npm\claude.ps1:14 char:3
++   & "$basedir/node_modules/@anthropic-ai/claude-code/bin/claude.exe"  ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
+At C:\Users\gurvir\AppData\Roaming\npm\claude.ps1:14 char:3
++   & "$basedir/node_modules/@anthropic-ai/claude-code/bin/claude.exe"  ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (:) [], ApplicationFailedException
+    + FullyQualifiedErrorId : NativeCommandFailed
+
+PS C:\Users\gurvir> python3 voltas-tracker
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+PS C:\Users\gurvir> python -m voltas_tracker setup
+C:\Users\gurvir\AppData\Local\Programs\Python\Python311\python.exe: No module named voltas_tracker.__main__; 'voltas_tracker' is a package and cannot be directly executed
+PS C:\Users\gurvir> voltas-tracker setup
+Path to a Project Design Delivery Checklist (or a folder of them): p:
+Path to the P: drive root:
+Saved. Run voltas-tracker run to scan.
+PS C:\Users\gurvir> voltas-tracker
+Usage: voltas-tracker [OPTIONS] COMMAND [ARGS]...
+Try 'voltas-tracker --help' for help.
+╭─ Error ───────────────────────────────────────────────────────────────────────────────╮
+│ Missing command.                                                                      │
+╰───────────────────────────────────────────────────────────────────────────────────────╯
+PS C:\Users\gurvir> voltas-tracker run
+Not configured yet — run voltas-tracker setup first.
+PS C:\Users\gurvir> voltas-tracker setup
+Path to a Project Design Delivery Checklist (or a folder of them) (p:):
+Path to the P: drive root: P:\
+Saved. Run voltas-tracker run to scan.
+PS C:\Users\gurvir> voltas-tracker run
+C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Conditional Formatting extension is not supported and will be removed
+  warn(msg)
+C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\reader\workbook.py:84: UserWarning: File contains an invalid specification for 0. This will be removed
+  warn(msg)
+C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Unknown extension is not supported and will be removed
+  warn(msg)
+C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\worksheet\header_footer.py:48: UserWarning: Cannot parse header or footer so it will be ignored
+  warn("""Cannot parse header or footer so it will be ignored""")
+C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+╭────────────────────────── Traceback (most recent call last) ──────────────────────────╮
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\voltas_trac │
+│ ker\cli.py:50 in run                                                                  │
+│                                                                                       │
+│   47 │   │   console.print("[red]Not configured yet — run [bold]voltas-tracker        │
+│      setup[/bold] first.[/red]")                                                      │
+│   48 │   │   raise typer.Exit(1)                                                      │
+│   49 │                                                                                │
+│ ❱ 50 │   checklists, files = _load_all(cfg)                                           │
+│   51 │   feedback = FeedbackStore()                                                   │
+│   52 │   results = []                                                                 │
+│   53 │   for chk in checklists:                                                       │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\voltas_trac │
+│ ker\cli.py:34 in _load_all                                                            │
+│                                                                                       │
+│   31                                                                                  │
+│   32                                                                                  │
+│   33 def _load_all(cfg: Config):                                                      │
+│ ❱ 34 │   checklists = load_checklists(cfg.excel_path)                                 │
+│   35 │   console.print(f"Loaded {len(checklists)} checklist(s) from                   │
+│      {cfg.excel_path}")                                                               │
+│   36 │   console.print(f"Scanning (read-only): {cfg.pdrive_root}")                    │
+│   37 │   files = scan(cfg.pdrive_root)                                                │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\voltas_trac │
+│ ker\excel_reader.py:128 in load_checklists                                            │
+│                                                                                       │
+│   125 │   │   │   for p in path.rglob("*.xls[xm]")                                    │
+│   126 │   │   │   if not p.name.startswith("~$") and not p.name.startswith(".")       │
+│   127 │   │   )                                                                       │
+│ ❱ 128 │   │   return [read_checklist(p) for p in books]                               │
+│   129 │   return [read_checklist(path)]                                               │
+│   130                                                                                 │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\voltas_trac │
+│ ker\excel_reader.py:128 in <listcomp>                                                 │
+│                                                                                       │
+│   125 │   │   │   for p in path.rglob("*.xls[xm]")                                    │
+│   126 │   │   │   if not p.name.startswith("~$") and not p.name.startswith(".")       │
+│   127 │   │   )                                                                       │
+│ ❱ 128 │   │   return [read_checklist(p) for p in books]                               │
+│   129 │   return [read_checklist(path)]                                               │
+│   130                                                                                 │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\voltas_trac │
+│ ker\excel_reader.py:76 in read_checklist                                              │
+│                                                                                       │
+│    73                                                                                 │
+│    74                                                                                 │
+│    75 def read_checklist(path: str | Path) -> ProjectChecklist:                       │
+│ ❱  76 │   wb = load_workbook(filename=str(path), read_only=True, data_only=True)      │
+│    77 │   ws = wb.active                                                              │
+│    78 │   chk = ProjectChecklist(source=str(path))                                    │
+│    79                                                                                 │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\re │
+│ ader\excel.py:346 in load_workbook                                                    │
+│                                                                                       │
+│   343 │   │   and the returned workbook will be read-only.                            │
+│   344 │                                                                               │
+│   345 │   """                                                                         │
+│ ❱ 346 │   reader = ExcelReader(filename, read_only, keep_vba,                         │
+│   347 │   │   │   │   │   │    data_only, keep_links, rich_text)                      │
+│   348 │   reader.read()                                                               │
+│   349 │   return reader.wb                                                            │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\re │
+│ ader\excel.py:123 in __init__                                                         │
+│                                                                                       │
+│   120 │                                                                               │
+│   121 │   def __init__(self, fn, read_only=False, keep_vba=KEEP_VBA,                  │
+│   122 │   │   │   │    data_only=False, keep_links=True, rich_text=False):            │
+│ ❱ 123 │   │   self.archive = _validate_archive(fn)                                    │
+│   124 │   │   self.valid_files = self.archive.namelist()                              │
+│   125 │   │   self.read_only = read_only                                              │
+│   126 │   │   self.keep_vba = keep_vba                                                │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\re │
+│ ader\excel.py:95 in _validate_archive                                                 │
+│                                                                                       │
+│    92 │   │   │   │   │   │   │   │   │   │   │   │   │                               │
+│       ','.join(SUPPORTED_FORMATS))                                                    │
+│    93 │   │   │   raise InvalidFileException(msg)                                     │
+│    94 │                                                                               │
+│ ❱  95 │   archive = ZipFile(filename, 'r')                                            │
+│    96 │   return archive                                                              │
+│    97                                                                                 │
+│    98                                                                                 │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\zipfile.py:1312 in        │
+│ __init__                                                                              │
+│                                                                                       │
+│   1309 │   │                                                                          │
+│   1310 │   │   try:                                                                   │
+│   1311 │   │   │   if mode == 'r':                                                    │
+│ ❱ 1312 │   │   │   │   self._RealGetContents()                                        │
+│   1313 │   │   │   elif mode in ('w', 'x'):                                           │
+│   1314 │   │   │   │   # set the modified flag so central directory gets written      │
+│   1315 │   │   │   │   # even if no files are added to the archive                    │
+│                                                                                       │
+│ C:\Users\gurvir\AppData\Local\Programs\Python\Python311\Lib\zipfile.py:1379 in        │
+│ _RealGetContents                                                                      │
+│                                                                                       │
+│   1376 │   │   except OSError:                                                        │
+│   1377 │   │   │   raise BadZipFile("File is not a zip file")                         │
+│   1378 │   │   if not endrec:                                                         │
+│ ❱ 1379 │   │   │   raise BadZipFile("File is not a zip file")                         │
+│   1380 │   │   if self.debug > 1:                                                     │
+│   1381 │   │   │   print(endrec)                                                      │
+│   1382 │   │   size_cd = endrec[_ECD_SIZE]             # bytes in central directory   │
+╰───────────────────────────────────────────────────────────────────────────────────────╯
+BadZipFile: File is not a zip file
+PS C:\Users\gurvir>
+PS C:\Users\gurvir>
+PS C:\Users\gurvir>
+PS C:\Users\gurvir>
