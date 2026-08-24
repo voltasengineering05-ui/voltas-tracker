@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voltas-tracker"
+version = "0.1.0"
+description = "AI document-tracking agent for Voltas Engineering: reconciles the Excel tracker against the P: drive and Outlook, and reports received / missing / overdue documents."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openpyxl>=3.1",
+    "rapidfuzz>=3.0",
+    "rich>=13.0",
+    "typer>=0.12",
+]
+
+[project.optional-dependencies]
+outlook = ["msal>=1.28", "requests>=2.31"]
+ai = ["ollama>=0.3"]
+
+[project.scripts]
+voltas-tracker = "voltas_tracker.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["voltas_tracker*"]

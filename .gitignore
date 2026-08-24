@@ -1,0 +1,13 @@
+# Client data never goes in this repo
+*.xlsx
+*.xls
+samples/
+exports/
+
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.venv/
+.DS_Store
